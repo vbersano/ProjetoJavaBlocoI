@@ -7,14 +7,10 @@ public abstract class Cardapio {
 	private int idSabor;
 	private int idBorda;
 	
-	//METODO CONSTRUTOR
-	public Cardapio (int idSabor) {
-		this.preco = 50;
+	public Cardapio(int idSabor) {
 		this.idSabor = idSabor;
-		
 	}
-	
-	
+
 	//GETTERS E SETTERS ATTS
 	double getPreco() {
 		return preco;

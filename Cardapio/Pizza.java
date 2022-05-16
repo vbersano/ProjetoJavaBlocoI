@@ -4,14 +4,22 @@ public class Pizza extends Cardapio {
 	
 	private double valorSabor;
 	private double valorBorda;
+	public double valorFinal;
 	
-	//METODO CONST. SUPERCLASSE CARDAPIO: super(sabor, preco);
 	//METODO CONST. SUBCLASSE PIZZASALGADA
 	public Pizza(int idSabor) {
 		super(idSabor);
 	}
 	
 	//METODOS MENU -> DEFINIÇÕES
+	public void setValorFinal(double valorFinal) {
+		this.valorFinal = valorFinal;
+		
+	}
+	
+	public double getValorFinal() {
+		return valorFinal;
+	}
 	
 	public double getValorSabor() {
 		return valorSabor;
@@ -86,6 +94,7 @@ public class Pizza extends Cardapio {
 	public void obterIdSabor(int idSabor) {
 		this.setIdSabor(idSabor);
 	}
+	
 	
 	public void obterIdBorda (int idBorda) {
 		this.setIdBorda(idBorda);
