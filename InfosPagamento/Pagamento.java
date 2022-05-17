@@ -1,6 +1,5 @@
 package InfosPagamento;
 
-import java.util.*;
 
 public class Pagamento implements Extrato {
 	

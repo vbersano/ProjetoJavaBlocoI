@@ -10,6 +10,8 @@ import InfosPagamento.Pagamento;
 
 public class ProgramaPizzaria {
 
+	@SuppressWarnings({ "unused", "resource" })
+	
 	public static void main(String[] args) {
 		
 		Scanner ler = new Scanner (System.in);
@@ -23,51 +25,52 @@ public class ProgramaPizzaria {
 		Login login = new Login (cadastro1.getNome(), cadastro1.getSenha());
 		
 		
+		 
+		login.menuCadastro();
+		boolean loopbreak=true;
+		int opcaoLogin=0;
+		
 		try {
+			opcaoLogin = ler.nextInt();
 			
-			boolean loopbreak=true; 
-			login.menuCadastro();
-			int opcao = ler.nextInt();
+		} catch (Exception erro) {
+			System.out.println("Coloque uma input válida!");
+		}
+		
+		
+		do {
 			
-			do {
-				switch (opcao) {
-				case 1:
+			if (opcaoLogin ==1) {
 				System.out.println("Login Selecionado");
 				System.out.println("\nNome de usuário: ");
 				login.setNome(ler.next());
 				System.out.println("Senha: ");
 				login.setSenha(ler.next());
 				System.out.println("\nLogin feito. ");
+				loopbreak=false;
 				
-				break;
-				case 2:
-					System.out.println("Cadastro selecionado");
-					System.out.println("\nDigite seu nome: ");
-					login.setNome(ler.next());
-					System.out.println("Endereço: ");
-					login.setEndereco(ler.next());
-					System.out.println("Senha: ");
-					login.setSenha(ler.next());
-					System.out.println("\nUsuário Cadastrado.");
+			} else if (opcaoLogin == 2 ) {
+				System.out.println("Cadastro selecionado");
+				System.out.println("\nDigite seu nome: ");
+				login.setNome(ler.next());
+				System.out.println("Endereço: ");
+				login.setEndereco(ler.next());
+				System.out.println("Senha: ");
+				login.setSenha(ler.next());
+				System.out.println("\nUsuário Cadastrado.");
+				loopbreak=false;
 				
-					break;
-				case 3:
-					
-					System.out.println("Informe seu Endereço:");
-					String endereco = ler.nextLine();
-					cadastro1.setEndereco(endereco);
-					loopbreak=false;
-					break;
-				}	
-			} while (loopbreak = false);
-			
-			System.out.println("\n"+cadastro1.getEndereco()+"\n");
+			} else {
+				System.out.println("Login sem cadastro selecionado");
+				String endereco = ler.nextLine();
+				cadastro1.setEndereco(endereco);
+				loopbreak=false;
+				
+			}
 			
 			
-		} catch (Exception erro) {
-			System.out.println("Coloque uma input válida");
-		}
-			
+		} while (loopbreak);
+				
 		
 		System.out.println();
 	
@@ -210,40 +213,55 @@ public class ProgramaPizzaria {
 		boolean loopDelivery=true;
 		int tempoEntrega;
 		boolean unlockEntrega;
-		do {
+		
+		if (opcaoLogin == 1 || opcaoLogin == 2) {
+		
+			do {
 
-			System.out.println("Qual sua opção de entrega:\n[1]Delivery\n[QQR INPUT]Buscar Pedido no estabelecimento");
-			int opcaoEntrega = ler.nextInt(); 
-			
-			if (opcaoEntrega == 1 ) {
-				unlockEntrega = true;
-				tempoEntrega = (contadorPedidos*30 + contadorPedidos*5);
-				System.out.println("Delivery Confirmado\n");
-				System.out.println("A pizza estará na sua mesa em: "+ (tempoEntrega + contadorPedidos*5) +" min");
-				System.out.println(cadastro1.getEndereco());
-				System.out.println();
+				System.out.println("Qual sua opção de entrega:\n[1]Delivery\n[QQR INPUT]Buscar Pedido no estabelecimento");
+				int opcaoEntrega = ler.nextInt(); 
 				
-			} else {
-				unlockEntrega = false;
-				tempoEntrega = (contadorPedidos*30);
-				System.out.println("Delivery Confirmado\n");
-				System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
-			}
+				if (opcaoEntrega == 1) {
+					unlockEntrega = true;
+					tempoEntrega = (contadorPedidos*30 + contadorPedidos*5);
+					System.out.println("Delivery Confirmado\n");
+					System.out.println("A pizza estará na sua mesa em: "+ (tempoEntrega + contadorPedidos*5) +" min");
+					System.out.println(cadastro1.getEndereco());
+					System.out.println();
+					
+				} else {
+					unlockEntrega = false;
+					tempoEntrega = (contadorPedidos*30);
+					System.out.println("Delivery Confirmado\n");
+					System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
+				}
+				
+				
+				System.out.println();
+				System.out.println("Confirma sua escolha?\n[1]SIM\n[QQR INPUT]NÃO, QUERO ALTERAR");
+				int confirmacao;
+				confirmacao = ler.nextInt();
+				
+				if (confirmacao == 1) {
+					loopDelivery = false;
+				} else {
+					loopDelivery = true;
+				}
+				
+				
+			} while (loopDelivery);
+				
+		} else {
 			
-			
+			System.out.println("Você fez o pedido sem Cadastro, portanto, a opção de Delivery está indisponível");
 			System.out.println();
-			System.out.println("Confirma sua escolha?\n[1]SIM\n[QQR INPUT]NÃO, QUERO ALTERAR");
-			int confirmacao;
-			confirmacao = ler.nextInt();
-			
-			if (confirmacao == 1) {
-				loopDelivery = false;
-			} else {
-				loopDelivery = true;
-			}
-			
-			
-		} while (loopDelivery);
+			unlockEntrega = false;
+			tempoEntrega = (contadorPedidos*30);
+			System.out.println("Delivery Confirmado\n");
+			System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
+			System.out.println();
+		}
+		
 		//SISTEMA DE DELIVERY
 		
 		
@@ -284,7 +302,7 @@ public class ProgramaPizzaria {
 		
 		//SISTEMA NOTA FISCAL
 		
-		NotaFiscal notaFiscal = new NotaFiscal (cadastro1.getEndereco(), unlockEntrega, tempoEntrega, somaTotalValores);
+		NotaFiscal notaFiscal = new NotaFiscal (cadastro1.getEndereco(), opcaoLogin, tempoEntrega, somaTotalValores);
 		System.out.println();
 		
 		

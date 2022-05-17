@@ -34,6 +34,9 @@ public class Login {
         System.out.print("|[2] - Cadastro                   |\n");
         System.out.print("|[3] - Fazer Pedido sem Cadastro  |\n");
         System.out.print("|---------------------------------|\n");
+        System.out.println();
+        System.out.print("OBS: A OPÇÃO [3] BLOQUEIA A OPÇÃO DE DELIVERY\n");
+        System.out.println();
         System.out.print("\nDigite uma opção: ");
 	}
 	

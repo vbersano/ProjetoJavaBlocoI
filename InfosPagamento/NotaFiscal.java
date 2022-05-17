@@ -2,9 +2,9 @@ package InfosPagamento;
 
 public class NotaFiscal {
 
-	public NotaFiscal (String endereco, boolean delivery, int tempoEntrega, double valorTotalPedido) {
+	public NotaFiscal (String endereco, int opcaoLogin, int tempoEntrega, double valorTotalPedido) {
 
-		if (delivery = true ) {
+		if (opcaoLogin == 1 || opcaoLogin==2 ) {
 			System.out.println(
 					 "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 					+"\n        INFORMAÇÕES DA ENTREGA"
@@ -15,7 +15,8 @@ public class NotaFiscal {
 					+" \n        INFORMAÇÕES DO PEDIDO"
 					+"\n"
 					+"\nVALOR DELIVERY R$ 10"
-					+"\nVALOR FINAL R$" + valorTotalPedido+10
+					+"\nVALOR DO PEDIDO R$:" + valorTotalPedido 
+					+"\nVALOR FINAL R$" + (valorTotalPedido+10)
 					+ "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 				
 			
@@ -31,7 +32,10 @@ public class NotaFiscal {
 					+"\n        INFORMAÇÕES DO PEDIDO"
 					+"\n"
 					+"\nVALOR DELIVERY R$ 0,00"
-					+"VALOR FINAL R$" + valorTotalPedido );
+					+"\nVALOR DO PEDIDO R$:" + valorTotalPedido 
+					+"\nVALOR FINAL R$" + valorTotalPedido
+					+ "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+			
 		}
 		
 	}
