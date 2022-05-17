@@ -25,19 +25,19 @@ public class Login {
 		this.senha = senha;
 	}
 	
-	// M…TODOS
+	// MÔøΩTODOS
 	
 	public void menuCadastro() {
 		System.out.print("##--PIZZARIA GENERATION BRASIL--##\n\n");
-        System.out.print("|-------------[Login]-------------|\n");
-        System.out.print("|[1] - Login                      |\n");
-        System.out.print("|[2] - Cadastro                   |\n");
-        System.out.print("|[3] - Fazer Pedido sem Cadastro  |\n");
-        System.out.print("|---------------------------------|\n");
+        System.out.print("üçï|-------------[Login]-------------üçï|\n");
+        System.out.print("üçï|[1] - Login                      üçï|\n");
+        System.out.print("üçï|[2] - Cadastro                   üçï|\n");
+        System.out.print("üçï|[3] - Fazer Pedido sem Cadastro  üçï|\n");
+        System.out.print("üçï|---------------------------------üçï|\n");
         System.out.println();
-        System.out.print("OBS: A OP«√O [3] BLOQUEIA A OP«√O DE DELIVERY\n");
+        System.out.print("OBS: A OP√á√ÉO [3] BLOQUEIA A OP√á√ÉO DE DELIVERY\n");
         System.out.println();
-        System.out.print("\nDigite uma opÁ„o: ");
+        System.out.print("\nDigite uma op√ß√£o: ");
 	}
 	
 	public void telaAdeus () {
@@ -49,11 +49,10 @@ public class Login {
     			+ "    .:'//.   \\ \\=|   \\ /  .:'':.\r\n"
     			+ "   :' // ':   \\ \\ ''..'--:'-.. ':\r\n"
     			+ "   '. '' .'    \\:.....:--'.-'' .'\r\n"
-    			+ "    ':..:'      AT… LOGO   ':..:'\n");
+    			+ "    ':..:'      AT√â LOGO   ':..:'\n");
 	}
 	
 	public void telaAdeus (String mensagem) {
-		mensagem = "Sua Pizza Est· a CAMINHO";
 		
 		System.out.println("        r==\r\n"
     			+ "        _  //\r\n"

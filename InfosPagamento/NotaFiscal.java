@@ -2,40 +2,40 @@ package InfosPagamento;
 
 public class NotaFiscal {
 
-	public NotaFiscal (String endereco, int opcaoLogin, int tempoEntrega, double valorTotalPedido) {
+	public NotaFiscal (String endereco, int tempoEntrega, double valorTotalPedido, int cobrancaEntrega) {
 
-		if (opcaoLogin == 1 || opcaoLogin==2 ) {
+		if (cobrancaEntrega == 1) {
 			System.out.println(
 					 "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-					+"\n        INFORMAÇÕES DA ENTREGA"
-					+"\nENDEREÇO DE ENTREGA: \n" + endereco
-					+"\nOPÇÃO DE DELIVERY: ENTREGA" 
+					+"\n       ðŸ“œ INFORMAÃ‡Ã•ES DA ENTREGA ðŸ“œ"
+					+"\nENDEREÃ‡O DE ENTREGA: \n" + endereco
+					+"\nOPÃ‡ÃƒO DE DELIVERY: ENTREGA" 
 					+"\nTempo de Entrega: " + tempoEntrega + " min"
 					+"\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-					+" \n        INFORMAÇÕES DO PEDIDO"
+					+"\n       ðŸ“œ INFORMAÃ‡Ã•ES DO PEDIDO ðŸ“œ"
 					+"\n"
 					+"\nVALOR DELIVERY R$ 10"
 					+"\nVALOR DO PEDIDO R$:" + valorTotalPedido 
 					+"\nVALOR FINAL R$" + (valorTotalPedido+10)
-					+ "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+					+"\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 				
 			
 			
-		} else {
+		} else if (cobrancaEntrega != 1) {
 			System.out.println(
 					 "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-					+"\n        INFORMAÇÕES DA ENTREGA"
-					+"\nENDEREÇO DE ENTREGA: \n" + endereco
-					+"\nOPÇÃO DE DELIVERY: BUSCAR NO ESTABELECIMENTO" 
+					+"\n       ðŸ“œ INFORMAÃ‡Ã•ES DA ENTREGA ðŸ“œ"
+					+"\nENDEREÃ‡O DE ENTREGA: \n" + endereco
+					+"\nOPÃ‡ÃƒO DE DELIVERY: BUSCAR NO ESTABELECIMENTO" 
 					+"\nTempo de Entrega: " + tempoEntrega + " min"
 					+"\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-					+"\n        INFORMAÇÕES DO PEDIDO"
+					+"\n       ðŸ“œ INFORMAÃ‡Ã•ES DO PEDIDO ðŸ“œ"
 					+"\n"
 					+"\nVALOR DELIVERY R$ 0,00"
 					+"\nVALOR DO PEDIDO R$:" + valorTotalPedido 
 					+"\nVALOR FINAL R$" + valorTotalPedido
-					+ "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-			
+					+"\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+				
 		}
 		
 	}

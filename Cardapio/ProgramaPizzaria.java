@@ -1,3 +1,5 @@
+//Turma 53 - Desenvolvimento Full Stack - Java Web
+
 package Cardapio;
 
 import java.util.ArrayList;
@@ -20,29 +22,35 @@ public class ProgramaPizzaria {
 		
 		ArrayList<Double> valorPedidos = new ArrayList<>();
 		
-		Cadastro cadastro1 = new Cadastro("jaozinho", "245247", "Rua da Abolição, N°134", "19 943495770");	
+		Cadastro cadastro1 = new Cadastro("jaozinho", "245247", "Rua da AboliÃ§Ã£o, NÂ°134", "19 943495770");	
 				
 		Login login = new Login (cadastro1.getNome(), cadastro1.getSenha());
 		
 		
 		 
 		login.menuCadastro();
-		boolean loopbreak=true;
 		int opcaoLogin=0;
+		boolean loopbreak=true;
 		
+			
 		try {
 			opcaoLogin = ler.nextInt();
+			loopbreak=false;
 			
 		} catch (Exception erro) {
-			System.out.println("Coloque uma input válida!");
+			System.out.println("OPÃ‡ÃƒO INVALIDA !!!!");
+			System.out.println("LOGIN SEM CADASTRO SELECIONADO");
+			System.out.println();
+			
 		}
 		
 		
+		loopbreak=true;
 		do {
 			
 			if (opcaoLogin ==1) {
-				System.out.println("Login Selecionado");
-				System.out.println("\nNome de usuário: ");
+				System.out.println("ðŸ’» Login Selecionado ðŸ’»");
+				System.out.println("\nNome de usuÃ¡rio: ");
 				login.setNome(ler.next());
 				System.out.println("Senha: ");
 				login.setSenha(ler.next());
@@ -50,18 +58,18 @@ public class ProgramaPizzaria {
 				loopbreak=false;
 				
 			} else if (opcaoLogin == 2 ) {
-				System.out.println("Cadastro selecionado");
+				System.out.println("ðŸ’» Cadastro selecionado ðŸ’»");
 				System.out.println("\nDigite seu nome: ");
 				login.setNome(ler.next());
-				System.out.println("Endereço: ");
+				System.out.println("EndereÃ§o: ");
 				login.setEndereco(ler.next());
 				System.out.println("Senha: ");
 				login.setSenha(ler.next());
-				System.out.println("\nUsuário Cadastrado.");
+				System.out.println("\nUsuÃ¡rio Cadastrado.");
 				loopbreak=false;
 				
 			} else {
-				System.out.println("Login sem cadastro selecionado");
+				System.out.println("ðŸ’» Login sem cadastro selecionado ðŸ’»");
 				String endereco = ler.nextLine();
 				cadastro1.setEndereco(endereco);
 				loopbreak=false;
@@ -88,7 +96,7 @@ public class ProgramaPizzaria {
 			int idSabor;
 			double valSabor=0;
 			contadorPedidos++;
-			System.out.printf("PEDIDO N° "+ contadorPedidos);
+			System.out.printf("PEDIDO NÂ° "+ contadorPedidos);
 			
 			
 			//SISTEMA ESCOLHA SABOR PIZZA
@@ -102,7 +110,7 @@ public class ProgramaPizzaria {
 				pizza1.billingPizza(idSabor);
 				valSabor = pizza1.getValorSabor();
 				
-				System.out.println("Confirma sua escolha?\n[1]SIM\n[2]NÃO, QUERO ALTERAR");
+				System.out.println("Confirma sua escolha?\n\n[1] SIM\n[2] NÃƒO, QUERO ALTERAR!");
 				int confirmacao;
 				confirmacao = ler.nextInt();
 				
@@ -125,8 +133,8 @@ public class ProgramaPizzaria {
 				
 				loopbreaker = true;
 				
-				System.out.println("Você gostaria de adicionar borda recheada à sua pizza?"
-						+ "\n[1]SIM\n[QQR INPUT]NÃO");
+				System.out.println("VocÃª gostaria de adicionar borda recheada Ã  sua pizza?"
+						+ "\n\n[1] SIM\n[OUTRO] NÃƒO");
 				int opcaoBorda = ler.nextInt();
 				
 				if (opcaoBorda == 1) {
@@ -145,7 +153,7 @@ public class ProgramaPizzaria {
 				valFinal = valSabor + valBorda;
 				System.out.printf("Valor Atual da Pizza: %.2f%n\n", valFinal);
 				
-				System.out.println("Confirma sua escolha?\n[1]SIM\n[QQR INPUT]NÃO, QUERO ALTERAR");
+				System.out.println("Confirma sua escolha?\n\n[1] SIM\n[Outro] NÃƒO, QUERO ALTERAR!");
 				int confirmacao;
 				confirmacao = ler.nextInt();
 				
@@ -174,8 +182,8 @@ public class ProgramaPizzaria {
 			
 			 
 			loopPedido = true;
-			System.out.println("Gostaria de Finalizar seu Pedido?"
-					+ "\n[1]SIM\n[2]Adicionar +1 Pizza\n[QQR INPUT]NÃO, QUERO ALTERAR");
+			System.out.println("Gostaria de finalizar seu pedido?"
+					+ "\n\n[1] SIM\n[2] Adicionar +1 Pizza\n[Outro] NÃƒO, QUERO ALTERAR");
 			int confirmacao;
 			confirmacao = ler.nextInt();
 			
@@ -204,7 +212,7 @@ public class ProgramaPizzaria {
 		for (int x = 0; x < limiteArray; x++) {
 			somaTotalValores = somaTotalValores + valorPedidos.get(x);
 		}
-		System.out.println("Valor total a Pagar: "+ somaTotalValores);
+		System.out.println("\nValor total a pagar: "+ somaTotalValores);
 		System.out.println();
 		//FINAL VALOR TOTAL
 
@@ -213,32 +221,37 @@ public class ProgramaPizzaria {
 		boolean loopDelivery=true;
 		int tempoEntrega;
 		boolean unlockEntrega;
+		int cobrancaEntrega;
 		
 		if (opcaoLogin == 1 || opcaoLogin == 2) {
 		
 			do {
 
-				System.out.println("Qual sua opção de entrega:\n[1]Delivery\n[QQR INPUT]Buscar Pedido no estabelecimento");
+				System.out.println("Qual sua opÃ§Ã£o de entrega:\n[1] Delivery\n[Outro] Buscar pedido no estabelecimento");
 				int opcaoEntrega = ler.nextInt(); 
 				
 				if (opcaoEntrega == 1) {
 					unlockEntrega = true;
 					tempoEntrega = (contadorPedidos*30 + contadorPedidos*5);
-					System.out.println("Delivery Confirmado\n");
-					System.out.println("A pizza estará na sua mesa em: "+ (tempoEntrega + contadorPedidos*5) +" min");
+					cobrancaEntrega = 1;
+					System.out.println("ðŸï¸ Delivery Confirmado ðŸï¸\n");
+					System.out.println("A pizza estarÃ¡ na sua mesa em: "+ (tempoEntrega + contadorPedidos*5) +" min");
 					System.out.println(cadastro1.getEndereco());
 					System.out.println();
 					
 				} else {
 					unlockEntrega = false;
+					
 					tempoEntrega = (contadorPedidos*30);
-					System.out.println("Delivery Confirmado\n");
-					System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
+					cobrancaEntrega = 2;
+					System.out.println(" ðŸï¸ Delivery Confirmado ðŸï¸\n");
+					System.out.println("A pizza estarÃ¡ pronta para buscar em: "+ tempoEntrega +" min");
+					System.out.println();
 				}
 				
 				
 				System.out.println();
-				System.out.println("Confirma sua escolha?\n[1]SIM\n[QQR INPUT]NÃO, QUERO ALTERAR");
+				System.out.println("Confirma sua escolha?\n[1] SIM\n[Outro] NÃƒO, QUERO ALTERAR!");
 				int confirmacao;
 				confirmacao = ler.nextInt();
 				
@@ -253,12 +266,13 @@ public class ProgramaPizzaria {
 				
 		} else {
 			
-			System.out.println("Você fez o pedido sem Cadastro, portanto, a opção de Delivery está indisponível");
+			System.out.println("VocÃª fez o pedido sem cadastro, portanto, a opÃ§Ã£o de delivery estÃ¡ indisponÃ­vel.");
 			System.out.println();
+			cobrancaEntrega = 2;
 			unlockEntrega = false;
 			tempoEntrega = (contadorPedidos*30);
-			System.out.println("Delivery Confirmado\n");
-			System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
+			System.out.println("ðŸï¸ Delivery Confirmado ðŸï¸\n");
+			System.out.println("A pizza estarÃ¡ pronta para buscar em: "+ tempoEntrega +" min");
 			System.out.println();
 		}
 		
@@ -268,9 +282,10 @@ public class ProgramaPizzaria {
 		//SISTEMA DE PAGAMENTO
 		Pagamento pagamentoMetodo = new Pagamento();
 		
-		System.out.println("Qual sua opção de pagamento?\n[1]CREDITO\n[2]A VISTA");
+		System.out.println("Qual sua opÃ§Ã£o de pagamento?\n[1] CRÃ‰DITO\n[2] A VISTA");
 		int opcaoEspecie = ler.nextInt(); 
 		boolean credito = true;
+			
 		
 		if (opcaoEspecie ==1) {
 			credito = true;
@@ -283,18 +298,18 @@ public class ProgramaPizzaria {
 			pagamentoMetodo.pagamentoMetodo(credito);
 		} else {
 			System.out.println("FORMAS DE PAGAMENTO A VISTA:");
-			System.out.println("[1] DÉBITO");
-			System.out.println("[QQR INPUT] PIX");
+			System.out.println("[1] DÃ‰BITO");
+			System.out.println("[OUTRO] PIX");
 			System.out.println();
 			pagamentoMetodo.pagamentoMetodo(credito);
 			System.out.println();
 			opcaoEspecie = ler.nextInt();
 			pagamentoMetodo.pagamentoMetodo(opcaoEspecie);
-			System.out.println("\nOPÇÃO ESCOLHIDA ["+ opcaoEspecie+"]");
+			System.out.println("\nOPÃ‡ÃƒO ESCOLHIDA ["+ opcaoEspecie+"]");
 			System.out.println();
 		}
 		
-		System.out.println("OPÇÃO DE PAGAMENTO: " + pagamentoMetodo.getOpcaoPagamento());
+		System.out.println("OPÃ‡ÃƒO DE PAGAMENTO: " + pagamentoMetodo.getOpcaoPagamento());
 		if (opcaoEspecie == 2) {
 			System.out.println("CHAVE PIX DA PIZZARIA: pizzaria.GenTMNT@hotmail.com");
 		}
@@ -302,9 +317,10 @@ public class ProgramaPizzaria {
 		
 		//SISTEMA NOTA FISCAL
 		
-		NotaFiscal notaFiscal = new NotaFiscal (cadastro1.getEndereco(), opcaoLogin, tempoEntrega, somaTotalValores);
+		NotaFiscal notaFiscal = new NotaFiscal (cadastro1.getEndereco(), tempoEntrega, somaTotalValores, cobrancaEntrega);
 		System.out.println();
-		
+		System.out.println();
+		login.telaAdeus("\nSua pizza estÃ¡ a caminho! ðŸï¸ðŸ’¨\nPizzaria Generation Agradece a PreferÃªncia!");
 		
 		
 	}

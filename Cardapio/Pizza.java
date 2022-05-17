@@ -11,7 +11,7 @@ public class Pizza extends Cardapio {
 		super(idSabor);
 	}
 	
-	//METODOS MENU -> DEFINI��ES
+	//METODOS MENU -> DEFINIÇÕES
 	public void setValorFinal(double valorFinal) {
 		this.valorFinal = valorFinal;
 		
@@ -53,24 +53,24 @@ public class Pizza extends Cardapio {
 	}
 	
 	public void menuPizza () {
-		System.out.println("|-------------[Menu Pizzas]-------------|");
-		System.out.println("|-----Escolha um sabor para a pizza-----|");
-		System.out.println("|-[1]Mozzarella-----------------R$ 25,00|");
-		System.out.println("|-[2]Margherita-----------------R$ 30,00|");
-		System.out.println("|-[3]Peperoni-------------------R$ 35,00|");
-		System.out.println("|-[4]Havaiana-------------------R$ 40,00|");
-		System.out.println("|---------------------------------------|");
+		System.out.println("🍕|-------------[Menu Pizzas]--------------🍕|");
+		System.out.println("🍕|-----Escolha um sabor para a pizza------🍕|");
+		System.out.println("🍕|-[1]Mozzarella-----------------R$ 25,00-🍕|");
+		System.out.println("🍕|-[2]Margherita-----------------R$ 30,00-🍕|");
+		System.out.println("🍕|-[3]Peperoni-------------------R$ 35,00-🍕|");
+		System.out.println("🍕|-[4]Havaiana-------------------R$ 40,00-🍕|");
+		System.out.println("🍕|----------------------------------------🍕|");
 		
 	}
 	
 	public void menuBorda () {
 			
-		System.out.println("|---------[Menu Bordas]---------|");
-		System.out.println("|-Escolha um sabor para a borda-|");
-		System.out.println("|-[1]Sem Borda-------- +R$ 00,00|");
-		System.out.println("|-[2]Catupiry--------- +R$ 05,00|");
-		System.out.println("|-[3]Cheddar---------- +R$ 10,00|");
-		System.out.println("|-------------------------------|");
+		System.out.println("🍕|---------[Menu Bordas]----------🍕|");
+		System.out.println("🍕|-Escolha um sabor para a borda--🍕|");
+		System.out.println("🍕|-[1]Sem Borda-------- +R$ 00,00-🍕|");
+		System.out.println("🍕|-[2]Catupiry--------- +R$ 05,00-🍕|");
+		System.out.println("🍕|-[3]Cheddar---------- +R$ 10,00-🍕|");
+		System.out.println("🍕|--------------------------------🍕|");
 			
 	}
 	
