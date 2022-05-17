@@ -1,6 +1,6 @@
-# ProjetoJavaBlocoI
+# Projeto Bloco I Generation Brasil
+# Dev FullStack Java 4 Web
 
-Turma 53 - Desenvolvimento Full Stack - Java Web
 
 Feito por:
 
