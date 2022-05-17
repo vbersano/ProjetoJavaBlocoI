@@ -7,6 +7,8 @@ public class Cadastro extends Login {
 
 	public Cadastro(String nome, String senha, String endereco, String numTelefone) {
 		super(nome, senha);
+		this.endereco = endereco;
+		this.numTelefone = numTelefone;
 		
 	}
 	

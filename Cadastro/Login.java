@@ -29,11 +29,11 @@ public class Login {
 	
 	public void menuCadastro() {
 		System.out.print("##--PIZZARIA GENERATION BRASIL--##\n\n");
-        System.out.print("|------------[Login]------------|\n");
-        System.out.print("|[1] - Login                    |\n");
-        System.out.print("|[2] - Cadastro                 |\n");
-        System.out.print("|[3] - Sair                     |\n");
-        System.out.print("|-------------------------------|\n");
+        System.out.print("|-------------[Login]-------------|\n");
+        System.out.print("|[1] - Login                      |\n");
+        System.out.print("|[2] - Cadastro                   |\n");
+        System.out.print("|[3] - Fazer Pedido sem Cadastro  |\n");
+        System.out.print("|---------------------------------|\n");
         System.out.print("\nDigite uma opção: ");
 	}
 	
@@ -46,7 +46,28 @@ public class Login {
     			+ "    .:'//.   \\ \\=|   \\ /  .:'':.\r\n"
     			+ "   :' // ':   \\ \\ ''..'--:'-.. ':\r\n"
     			+ "   '. '' .'    \\:.....:--'.-'' .'\r\n"
-    			+ "    ':..:'      ATÉ LOGO            ':..:'\n");
+    			+ "    ':..:'      ATÉ LOGO   ':..:'\n");
+	}
+	
+	public void telaAdeus (String mensagem) {
+		mensagem = "Sua Pizza Está a CAMINHO";
+		
+		System.out.println("        r==\r\n"
+    			+ "        _  //\r\n"
+    			+ "       |_)//(''''':\r\n"
+    			+ "         //  \\_____:_____.-----.P\r\n"
+    			+ "        //   | ===  |   /        \\\r\n"
+    			+ "    .:'//.   \\ \\=|   \\ /  .:'':.\r\n"
+    			+ "   :' // ':   \\ \\ ''..'--:'-.. ':\r\n"
+    			+ "   '. '' .'    \\:.....:--'.-'' .'\r\n"
+    			+ "    ':..:'      BEEP BEEP  ':..:'\n"
+    			+ mensagem);
+	}
+
+
+	public void setEndereco(String next) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

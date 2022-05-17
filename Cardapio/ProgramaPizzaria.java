@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Cadastro.Cadastro;
-import Cadastro.Entrega;
 import Cadastro.Login;
+import InfosPagamento.NotaFiscal;
+import InfosPagamento.Pagamento;
 
 public class ProgramaPizzaria {
 
 	public static void main(String[] args) {
+		
 		Scanner ler = new Scanner (System.in);
 		
 		Pizza pizza1 = new Pizza(0);
@@ -20,29 +22,61 @@ public class ProgramaPizzaria {
 				
 		Login login = new Login (cadastro1.getNome(), cadastro1.getSenha());
 		
-		String inputNome;
-		String inputSenha;
 		
-		
-		
-		do {
+		try {
 			
-			System.out.println("Digite seu nome: ");
-			inputNome = ler.nextLine();
-			System.out.println("Digite sua senha: ");
-			inputSenha = ler.nextLine();
-			System.out.println();
+			boolean loopbreak=true; 
+			login.menuCadastro();
+			int opcao = ler.nextInt();
 			
-		} while (inputSenha == cadastro1.getSenha() && inputNome == cadastro1.getNome());
+			do {
+				switch (opcao) {
+				case 1:
+				System.out.println("Login Selecionado");
+				System.out.println("\nNome de usuário: ");
+				login.setNome(ler.next());
+				System.out.println("Senha: ");
+				login.setSenha(ler.next());
+				System.out.println("\nLogin feito. ");
+				
+				break;
+				case 2:
+					System.out.println("Cadastro selecionado");
+					System.out.println("\nDigite seu nome: ");
+					login.setNome(ler.next());
+					System.out.println("Endereço: ");
+					login.setEndereco(ler.next());
+					System.out.println("Senha: ");
+					login.setSenha(ler.next());
+					System.out.println("\nUsuário Cadastrado.");
+				
+					break;
+				case 3:
+					
+					System.out.println("Informe seu Endereço:");
+					String endereco = ler.nextLine();
+					cadastro1.setEndereco(endereco);
+					loopbreak=false;
+					break;
+				}	
+			} while (loopbreak = false);
+			
+			System.out.println("\n"+cadastro1.getEndereco()+"\n");
+			
+			
+		} catch (Exception erro) {
+			System.out.println("Coloque uma input válida");
+		}
+			
 		
-		
-		
+		System.out.println();
+	
 		
 		int contadorPedidos = 0;
-		double somaTotalValores = 0;
 		boolean loopPedido;
 		
 		//loop pedido
+
 		do {
 			
 			//DEFINICAO SABOR PIZZA
@@ -77,7 +111,7 @@ public class ProgramaPizzaria {
 				
 				
 			} while (loopbreaker);
-			
+			//SISTEMA ESCOLHA SABOR PIZZA
 			
 			//SISTEMA ESCOLHA DA BORDA
 			
@@ -152,48 +186,106 @@ public class ProgramaPizzaria {
 				loopPedido = true;
 			}
 	
-			System.out.println(somaTotalValores);
-			System.out.println();
-			
-			//VALOR TOTAL DO PEDIDO
-//			for (int x = 0; x < i; x++) {
-//				somaTotalValores = somaTotalValores + valorPedidos.
-//			}
-//			
-			System.out.println("PEDIDOS: "+valorPedidos);
-			
-			System.out.println("Valor total a Pagar: "+ somaTotalValores);
-			
-			
-		} while (loopPedido);
+			System.out.println(valorPedidos);
 		
-		// METODO DE ENTREGA
-		// RETIRAR NA PIZZARIA
+			
+			
+		} while (loopPedido); //FIM SISTEMA PEDIDO
+		
+		
+		//VALOR TOTAL DO PEDIDO
+		double somaTotalValores = 0;
+		int limiteArray;
+		limiteArray = valorPedidos.size();
+		
+		for (int x = 0; x < limiteArray; x++) {
+			somaTotalValores = somaTotalValores + valorPedidos.get(x);
+		}
+		System.out.println("Valor total a Pagar: "+ somaTotalValores);
+		System.out.println();
+		//FINAL VALOR TOTAL
+
+		
 		// DELIVERY IFOOD
-		
-		Entrega frete = new Entrega();
-		
-		try {
+		boolean loopDelivery=true;
+		int tempoEntrega;
+		boolean unlockEntrega;
+		do {
+
+			System.out.println("Qual sua opção de entrega:\n[1]Delivery\n[QQR INPUT]Buscar Pedido no estabelecimento");
+			int opcaoEntrega = ler.nextInt(); 
 			
-		boolean retirada;
-		System.out.println("Digite true para retirar o pedido na loja e false para receber em casa:\n");
-		int escolha = ler.nextInt();
-		
-		//Definição da escolha
-		if (escolha == 1) {
-			retirada = true;
-			frete.setRetirada(retirada);
+			if (opcaoEntrega == 1 ) {
+				unlockEntrega = true;
+				tempoEntrega = (contadorPedidos*30 + contadorPedidos*5);
+				System.out.println("Delivery Confirmado\n");
+				System.out.println("A pizza estará na sua mesa em: "+ (tempoEntrega + contadorPedidos*5) +" min");
+				System.out.println(cadastro1.getEndereco());
+				System.out.println();
+				
+			} else {
+				unlockEntrega = false;
+				tempoEntrega = (contadorPedidos*30);
+				System.out.println("Delivery Confirmado\n");
+				System.out.println("A pizza estará pronta para buscar em: "+ tempoEntrega +" min");
+			}
 			
-	
+			
+			System.out.println();
+			System.out.println("Confirma sua escolha?\n[1]SIM\n[QQR INPUT]NÃO, QUERO ALTERAR");
+			int confirmacao;
+			confirmacao = ler.nextInt();
+			
+			if (confirmacao == 1) {
+				loopDelivery = false;
+			} else {
+				loopDelivery = true;
+			}
+			
+			
+		} while (loopDelivery);
+		//SISTEMA DE DELIVERY
+		
+		
+		//SISTEMA DE PAGAMENTO
+		Pagamento pagamentoMetodo = new Pagamento();
+		
+		System.out.println("Qual sua opção de pagamento?\n[1]CREDITO\n[2]A VISTA");
+		int opcaoEspecie = ler.nextInt(); 
+		boolean credito = true;
+		
+		if (opcaoEspecie ==1) {
+			credito = true;
+			
 		} else {
-			retirada = false;
-			frete.setRetirada(retirada);
+			credito = false;
 		}
 		
-		
-		} catch (Exception erro) {
-			System.out.println("Você digitou um caráter inválido. Digite apenas números." );
+		if (credito == true) {
+			pagamentoMetodo.pagamentoMetodo(credito);
+		} else {
+			System.out.println("FORMAS DE PAGAMENTO A VISTA:");
+			System.out.println("[1] DÉBITO");
+			System.out.println("[QQR INPUT] PIX");
+			System.out.println();
+			pagamentoMetodo.pagamentoMetodo(credito);
+			System.out.println();
+			opcaoEspecie = ler.nextInt();
+			pagamentoMetodo.pagamentoMetodo(opcaoEspecie);
+			System.out.println("\nOPÇÃO ESCOLHIDA ["+ opcaoEspecie+"]");
+			System.out.println();
 		}
+		
+		System.out.println("OPÇÃO DE PAGAMENTO: " + pagamentoMetodo.getOpcaoPagamento());
+		if (opcaoEspecie == 2) {
+			System.out.println("CHAVE PIX DA PIZZARIA: pizzaria.GenTMNT@hotmail.com");
+		}
+		//FIM SISTEMA DE PAGAMENTO
+		
+		//SISTEMA NOTA FISCAL
+		
+		NotaFiscal notaFiscal = new NotaFiscal (cadastro1.getEndereco(), unlockEntrega, tempoEntrega, somaTotalValores);
+		System.out.println();
 		
 		
 		
